@@ -11,8 +11,7 @@ const initialState = {
 	answersDisabledStatus: false,
 	en: [],
 	ru: [],
-	am: {
-		rounds: [
+	am: [
 			{
 				question: 'Ե՞րբ է տեղի ունեցել ավարայրի ճակատամարտը։',
 				correct_answer: '451թ․',
@@ -23,8 +22,7 @@ const initialState = {
 				correct_answer: 'Տիգրան Պետրոսյան',
 				incorrect_answers: ['Շառլ Ազնավուր', 'Թաթուլ Կրպեյան', 'Կարեն Դեմիրճյան'],
 			}			
-		]
-	},
+	],
 	currentSoundProps: {}
 };
 
