@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/millionaire/static/css/main.78b8909e.chunk.css",
-    "main.js": "/millionaire/static/js/main.e1096e16.chunk.js",
-    "main.js.map": "/millionaire/static/js/main.e1096e16.chunk.js.map",
+    "main.css": "/millionaire/static/css/main.1d0ddd37.chunk.css",
+    "main.js": "/millionaire/static/js/main.c924a1d2.chunk.js",
+    "main.js.map": "/millionaire/static/js/main.c924a1d2.chunk.js.map",
     "runtime-main.js": "/millionaire/static/js/runtime-main.70d563fc.js",
     "runtime-main.js.map": "/millionaire/static/js/runtime-main.70d563fc.js.map",
-    "static/js/2.59d82c36.chunk.js": "/millionaire/static/js/2.59d82c36.chunk.js",
-    "static/js/2.59d82c36.chunk.js.map": "/millionaire/static/js/2.59d82c36.chunk.js.map",
+    "static/js/2.4fadfea8.chunk.js": "/millionaire/static/js/2.4fadfea8.chunk.js",
+    "static/js/2.4fadfea8.chunk.js.map": "/millionaire/static/js/2.4fadfea8.chunk.js.map",
     "index.html": "/millionaire/index.html",
-    "precache-manifest.25ee401d897546fc00dea8ad7ef72163.js": "/millionaire/precache-manifest.25ee401d897546fc00dea8ad7ef72163.js",
+    "precache-manifest.dd321e473dcfd4282eb44e858255bfd6.js": "/millionaire/precache-manifest.dd321e473dcfd4282eb44e858255bfd6.js",
     "service-worker.js": "/millionaire/service-worker.js",
-    "static/css/main.78b8909e.chunk.css.map": "/millionaire/static/css/main.78b8909e.chunk.css.map",
-    "static/js/2.59d82c36.chunk.js.LICENSE.txt": "/millionaire/static/js/2.59d82c36.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/millionaire/static/media/logo.f1a49803.svg"
+    "static/css/main.1d0ddd37.chunk.css.map": "/millionaire/static/css/main.1d0ddd37.chunk.css.map",
+    "static/js/2.4fadfea8.chunk.js.LICENSE.txt": "/millionaire/static/js/2.4fadfea8.chunk.js.LICENSE.txt",
+    "static/media/correct_answer.mp3": "/millionaire/static/media/correct_answer.d7a6e880.mp3",
+    "static/media/fiftyFifty.mp3": "/millionaire/static/media/fiftyFifty.c0276851.mp3",
+    "static/media/final_answer.mp3": "/millionaire/static/media/final_answer.b0092313.mp3",
+    "static/media/logo.svg": "/millionaire/static/media/logo.f1a49803.svg",
+    "static/media/preloader.svg": "/millionaire/static/media/preloader.d08e2137.svg",
+    "static/media/resign.mp3": "/millionaire/static/media/resign.a5d66bba.mp3",
+    "static/media/wrong_answer.mp3": "/millionaire/static/media/wrong_answer.e55862ad.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.70d563fc.js",
-    "static/js/2.59d82c36.chunk.js",
-    "static/css/main.78b8909e.chunk.css",
-    "static/js/main.e1096e16.chunk.js"
+    "static/js/2.4fadfea8.chunk.js",
+    "static/css/main.1d0ddd37.chunk.css",
+    "static/js/main.c924a1d2.chunk.js"
   ]
 }
