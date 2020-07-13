@@ -1,9 +1,10 @@
-import React from 'react'; 
+import React from 'react';
+import { encodeHTML } from './utilities';
 
 function Question(props) {
 	return (
 		<div className="question" >
-			<h4>{props.question}</h4>
+			<h5>{encodeHTML(props.question)}</h5>
 		</div>
 	)
 };

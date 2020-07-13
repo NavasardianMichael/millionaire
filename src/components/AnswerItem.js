@@ -8,7 +8,7 @@ function AnswerItem(props) {
 
 	function handleAnswer(event) {
 		dispatch(asyncCheckAnswer(props.answer));
-		dispatch(asyncSetCurrentSoundProps('sounds/final_answer.mp3', 'sounds/correct_answer.mp3', 'sounds/wrong_answer.mp3'));
+		dispatch(asyncSetCurrentSoundProps(require('../sounds/final_answer.mp3'), require('../sounds/correct_answer.mp3'), require('../sounds/wrong_answer.mp3')));
 	};
 
 	const backgroundColor = (props.currentAnswer === props.answer && props.answerProcStatus === 'checking') ?
@@ -22,8 +22,9 @@ function AnswerItem(props) {
 
 	return ( 
 		<div className="col-md-6 answer-item" >
-			<button to="game" className="btn btn-outline-light w-100 my-2 py-2" onClick={handleAnswer} style={{backgroundColor}} disabled={props.answersDisabledStatus} >
-				{props.answer}
+			<button to="game" className="btn btn-outline-light text-left w-100 my-2 py-2" onClick={handleAnswer} style={{backgroundColor}} disabled={props.answersDisabledStatus} >
+				<span className="answer-variant-char">{props.answerVariantChar}:</span>
+				<span className="asnwer-text">{props.answer}</span>
 			</button>
 		</div>
 	)
