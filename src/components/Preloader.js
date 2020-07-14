@@ -3,7 +3,7 @@ import preoloader from '../images/preloader.svg';
 
 function Preloader() {
 	return (
-		<img src={preoloader} className="w-25" alt="preloader" title="preloader" />
+		<img src={preoloader} id="preloader" alt="preloader" title="preloader" />
 	)
 }
 

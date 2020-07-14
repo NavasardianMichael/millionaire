@@ -1,5 +1,5 @@
 import { SET_ROUNDS, SET_CURRENT_ROUND_INDEX, SET_CURRENT_ANSWER, SET_ANSWER_PROC_STATUS, HIGHLIGHT_TRUE_ANSWER, SET_NEXT_ROUND, SET_GAME_PROC_STATUS, SET_CURRENT_SOUND_PROPS, SET_CURRENT_SOUND_PROPS_AFTER_COMPARE, SET_ANSWERS_DISABLED_STATUS, 
-	SET_HELP_ITEM_USED_STATUS, SET_HELP_ITEM_SHOWN_STATUS, SET_CURRENT_HELP_ITEM_DATA } from './types';
+	SET_HELP_ITEM_USED_STATUS, SET_HELP_ITEM_SHOWN_STATUS, SET_CURRENT_HELP_ITEM_DATA, SET_SOUND_AVAILABILITY } from './types';
 
 export function setRounds(difficulty, rounds) {
 	return {
@@ -114,6 +114,12 @@ export function setCurrentSoundPropsAfterCompare(rightAnswerSoundUrl, wrongAnswe
 	}
 };
 
+export function setSoundAvailability() {
+	return {
+		type: SET_SOUND_AVAILABILITY,
+	}
+};
+
 export function asyncSetCurrentSoundProps(checkingSoundUrl, rightAnswerSoundUrl, wrongAnswerSoundUrl) {
 	return async function(dispatch) {
 		dispatch(setCurrentSoundProps(checkingSoundUrl));
@@ -155,12 +161,12 @@ export function findCurrentHelpItemAndSetData(helpItem, rightAnswerIndex) {
 		switch (helpItem) {
 			case 'fiftyFifty':
 				helpItemData = [0, 1, 2, 3];
-				helpItemData.splice(rightAnswerIndex, 1, null);
+				helpItemData.splice(rightAnswerIndex, 1, 'staying');
 				var notRemovedOtherIndex = Math.round(Math.random()*3);
 				while(notRemovedOtherIndex === rightAnswerIndex) {
 					notRemovedOtherIndex = Math.round(Math.random()*3)
 				};
-				helpItemData.splice(notRemovedOtherIndex, 1, null);
+				helpItemData.splice(notRemovedOtherIndex, 1, 'staying');
 				dispatch(setCurrentHelpItemData(helpItemData, helpItem));
 				break
 			case 'audienceHelp':

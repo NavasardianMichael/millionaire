@@ -22,7 +22,7 @@ function AnswerItem(props) {
 
 	return ( 
 		<div className="col-md-6 answer-item" >
-			<button to="game" className="btn btn-outline-light text-left w-100 my-2 py-2" onClick={handleAnswer} style={{backgroundColor}} disabled={props.answersDisabledStatus} >
+			<button className="btn btn-outline-light text-left w-100 my-2 py-2" onClick={handleAnswer} style={{backgroundColor}} disabled={props.answersDisabledStatus} >
 				<span className="answer-variant-char">{props.answerVariantChar}:</span>
 				<span className="asnwer-text">{props.answer}</span>
 			</button>

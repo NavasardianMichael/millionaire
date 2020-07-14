@@ -7,12 +7,11 @@ import CallFriendHelp from './CallFriendHelp';
 function Header(props) {
 	const audienceHelp = !!props.helpItemShownStatus.audienceHelp;
 	const callFriendHelp = !!props.helpItemShownStatus.callFriend;
-	console.log(callFriendHelp, audienceHelp)
 	return (
 		<div id="header">
-			<Logo className={(audienceHelp || callFriendHelp) ? 'd-block' : 'd-none'}/>
-			<AudienceHelp className={audienceHelp ? 'd-block' : 'd-none'}/>
-			<CallFriendHelp className={callFriendHelp ? 'd-block' : 'd-none'}/>
+			<Logo shownStatus={!audienceHelp && !callFriendHelp}/>
+			<AudienceHelp />
+			<CallFriendHelp />
 		</div>
 	)
 }

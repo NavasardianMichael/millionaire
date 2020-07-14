@@ -11,16 +11,15 @@ function App() {
   return (
   	<Router>
 	    <div className="page-content">
-	    	<div className="container-fluid pr-0 text-center">
+	    	<div className="container-fluid text-center">
 	    		<Switch>
 	    			<Route path="/" exact component={Header} />
 	    		</Switch>
 		    	<Switch>
-
-				  <Route path="/game/lostPage" exact component={LostPage} />	  			  
-				<Route path="/rules" component={Rules} />
-				  <Route path="/game" component={Game} />
-				  <Route path="/" exact component={MainCommands} />
+				  	<Route path="/game/lostPage" exact component={LostPage} />	  			  
+					<Route path="/rules" component={Rules} />
+				  	<Route path="/game" component={Game} />
+				  	<Route path="/" exact component={MainCommands} />
 	        	</Switch>
 	    	</div>
 	    </div>

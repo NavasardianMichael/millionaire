@@ -1,4 +1,4 @@
-import { SET_ROUNDS, SET_CURRENT_ROUND_INDEX, SET_CURRENT_ANSWER, SET_ANSWER_PROC_STATUS, HIGHLIGHT_TRUE_ANSWER, SET_NEXT_ROUND, SET_GAME_PROC_STATUS, SET_CURRENT_SOUND_PROPS, SET_CURRENT_SOUND_PROPS_AFTER_COMPARE, SET_ANSWERS_DISABLED_STATUS,
+import { SET_ROUNDS, SET_CURRENT_ROUND_INDEX, SET_CURRENT_ANSWER, SET_ANSWER_PROC_STATUS, HIGHLIGHT_TRUE_ANSWER, SET_NEXT_ROUND, SET_GAME_PROC_STATUS, SET_CURRENT_SOUND_PROPS, SET_SOUND_AVAILABILITY, SET_CURRENT_SOUND_PROPS_AFTER_COMPARE, SET_ANSWERS_DISABLED_STATUS,
 SET_HELP_ITEM_USED_STATUS, SET_HELP_ITEM_SHOWN_STATUS, SET_CURRENT_HELP_ITEM_DATA } from './types';
 
 const initialState = {
@@ -25,6 +25,7 @@ const initialState = {
 			}			
 		],
 	currentSoundProps: {},
+	soundAvailability: true,
 	audienceHelpPercents: [],
 	helpItemsUsedStatus: {},
 	helpItemShownStatus: {},
@@ -55,6 +56,8 @@ function dataReducer(state = initialState, action) {
 		case SET_CURRENT_SOUND_PROPS:
 			const {url, playFromPosition, playStatus, autoLoad, autoPlay} = action;
 			return 	{...state, currentSoundProps: {url, playFromPosition, playStatus, autoLoad, autoPlay}}
+		case SET_SOUND_AVAILABILITY:
+			return 	{...state, soundAvailability: !state.soundAvailability}
 		case SET_ANSWERS_DISABLED_STATUS:
 			return 	{...state, answersDisabledStatus: action.status}
 		case SET_CURRENT_SOUND_PROPS_AFTER_COMPARE:
@@ -81,9 +84,8 @@ function dataReducer(state = initialState, action) {
 						currentHelpItemData: action.helpItemData, 
 						[state.currentLanguage]: state[state.currentLanguage].map((round, roundIndex) => {
 							if(roundIndex !== state.currentRoundIndex) return round;
-							return {...round, variants: state[state.currentLanguage][state.currentRoundIndex].variants.filter((variant, variantIndex) => action.helpItemData[variantIndex] === null ? variant : '')}
+							return {...round, variants: state[state.currentLanguage][state.currentRoundIndex].variants.map((variant, variantIndex) => action.helpItemData[variantIndex] === 'staying' ? variant : '')}
 						})
-						// [state.currentLanguage]: [...state[state.currentLanguage], [[state.currentLanguage][state.currentRoundIndex]]: {...state[state.currentLanguage][state.currentRoundIndex], variants: state[state.currentLanguage][state.currentRoundIndex].variants.map((variant, index) => action.helpItemData[index] === null ? '' : variant)}]
 					   }
 			} else {
 				return {...state, currentHelpItemData: action.helpItemData}

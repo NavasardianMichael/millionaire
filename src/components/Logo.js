@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from '../logo.svg';
 
-function Logo() {
+function Logo(props) {
 	return (
-		<div id="logo">
+		<div id="logo" className={props.shownStatus ? 'd-block' : 'd-none'}>
 			<img src={logo} alt="logo" title="logo"/>
 		</div>
 	)

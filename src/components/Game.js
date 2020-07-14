@@ -23,9 +23,9 @@ function Game(props) {
 		dispatch(setHelpItemShownStatus(null));
 	},[props.currentRoundIndex, dispatch])
 
-	// function handleFinishedPlaying() {
-	// 	dispatch(setCurrentSoundProps(require(`../sounds/${props.currentDifficultyLevel}.mp3`)))
-	// }
+	function handleFinishedPlaying() {
+		dispatch(setCurrentSoundProps(require(`../sounds/${props.currentDifficultyLevel}.mp3`)))
+	}
 
 	if(props.gameProcStatus === 'lost' && 
 		!props.currentAnswerStatus && 
@@ -35,7 +35,7 @@ function Game(props) {
 
 	const answers = props.rounds[props.currentLanguage][props.currentRoundIndex].variants.map((answer, index) => {
 		return (
-			<AnswerItem answer={encodeHTML(answer)} answerVariantChar={String.fromCharCode(65 + index)} answersDisabledStatus={props.answersDisabledStatus} answerProcStatus={props.answerProcStatus} currentAnswer={props.currentAnswer} key={answer} currentAnswerStatus={props.currentAnswerStatus} correctAnswer={props.rounds[props.currentLanguage][props.currentRoundIndex].correct_answer} />
+			<AnswerItem answer={encodeHTML(answer)} answerVariantChar={String.fromCharCode(65 + index)} answersDisabledStatus={props.answersDisabledStatus} answerProcStatus={props.answerProcStatus} currentAnswer={props.currentAnswer} key={`${answer}index${index}`} currentAnswerStatus={props.currentAnswerStatus} correctAnswer={props.rounds[props.currentLanguage][props.currentRoundIndex].correct_answer} />
 		)
 	});
 	
@@ -45,11 +45,11 @@ function Game(props) {
 				<Header />
 				<Sound 
 					url={props.currentSoundProps.url || ''} 
-					playFromPosition={props.currentSoundProps.playFromPosition}
 					autoLoad={props.currentSoundProps.autoLoad}
 					autoPlay={props.currentSoundProps.autoPlay}
 					playStatus={props.currentSoundProps.playStatus || 'STOPPED'}
-					// onFinishedPlaying={handleFinishedPlaying}
+					volume={props.soundAvailability ? 100 : 0}
+					onFinishedPlaying={handleFinishedPlaying}
 				/>
 				<Question question={encodeHTML(props.rounds[props.currentLanguage][props.currentRoundIndex].question)} />
 				<div className="row answers">
@@ -57,7 +57,7 @@ function Game(props) {
 					<span className={`changing-question-arrows ${props.helpItemShownStatus.changeQuestion ? 'd-inline' : 'd-none'}`}><i className="fas fa-sync-alt"></i></span>
 				</div>
 			</div>
-			<Sidebar />
+			<Sidebar soundAvailability={props.soundAvailability}/>
 		</div>
 	)
 };
@@ -72,6 +72,7 @@ const mapStateToProps = state => {
 		currentAnswerStatus: state.data.currentAnswerStatus,
 		gameProcStatus: state.data.gameProcStatus,
 		currentSoundProps: state.data.currentSoundProps,
+		soundAvailability: state.data.soundAvailability,
 		answersDisabledStatus: state.data.answersDisabledStatus,
 		currentDifficultyLevel: state.data.currentDifficultyLevel,
 		audienceHelpPercents: state.data.audienceHelpPercents,

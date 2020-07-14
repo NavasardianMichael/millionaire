@@ -6,9 +6,15 @@ function CallFriendHelp(props) {
 	if(props.currentHelpItemData !== null && props.helpItemShownStatus.callFriend) {
 		return (
 			<div id="callFriendHelp" className={props.helpItemShownStatus.callFriend ? 'd-block' : 'd-none'}>
-				<h4>{props.currentHelpItemData.fullName}</h4>
-				<img className="w-75" src={props.currentHelpItemData.pictureUrl} alt={`call to ${props.currentHelpItemData.fullName}`} title={`call to ${props.currentHelpItemData.fullName}`}/>
-				<p className="friend-text">I think the right answer is {String.fromCharCode(65 + props.currentHelpItemData.variant)} </p>
+				<div className="row">
+					<div className="col pr-0">
+						<img className="w-100" src={props.currentHelpItemData.pictureUrl} alt={`call to ${props.currentHelpItemData.fullName}`} title={`call to ${props.currentHelpItemData.fullName}`}/>
+					</div>
+					<div className="col text-left my-auto pl-0">
+						<h4>{props.currentHelpItemData.fullName}</h4>
+						<p className="friend-text">I think the right answer is {String.fromCharCode(65 + props.currentHelpItemData.variant)} </p>						
+					</div>
+				</div>
 			</div>
 		)
 	} else {

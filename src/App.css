@@ -13,7 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 30vh;
+  margin: .5rem;
+  max-height: 35vh;
 }
 
 #header img {
@@ -78,12 +79,14 @@
 #callFriendHelp,
 #audienceHelp {
   width: 100%;
-  margin: .5rem;
-  padding: 1rem;
   background: rgba(0, 0, 0, .08);
   border: 1px solid white;
   border-radius: .5rem;
   font-size: 1.05rem;
+}
+
+#audienceHelp {
+  padding: 1rem;
 }
 
 #audienceHelp .audience-help-percent {
@@ -139,6 +142,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#rules {
+  text-align: justify;
+}
+
+#rules .to-start-page-btn {
+  margin-top: 1rem
+}
+
+#preloader {
+  width: 25%;
+  max-width: 150px;
 }
 
 .btn {
@@ -199,7 +215,7 @@
   .menu {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1rem;
     width: 60%;
     background: rgba(155, 89, 182, 1);
   }
@@ -216,6 +232,6 @@
   }
 
   .menu {
-    width: 95%;
+    width: 100%;
   }
 }
