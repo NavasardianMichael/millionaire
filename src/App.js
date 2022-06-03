@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Header from './components/Header';
@@ -8,6 +8,15 @@ import Rules from './components/Rules';
 import Game from './components/Game';
 
 function App() {
+
+	
+	const disableCopy = useCallback((e) => e.preventDefault(), [])
+
+	useEffect(() => {
+		document.body.addEventListener('copy', disableCopy);
+		return () => document.body.removeEventListener('copy', disableCopy)
+	}, [])
+
   return (
   	<Router>
 	    <div className="page-content">
